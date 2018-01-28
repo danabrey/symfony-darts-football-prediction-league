@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% set title = "Darts Football Prediction League" %}
+
+{% block body %}
+     {% for entrant in entrants %}
+          {{ entrant.name }} - {{ entrant.score }}<br>
+     {% endfor %}
+{% endblock %}
