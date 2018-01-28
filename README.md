@@ -1,0 +1,1 @@
+Symfony app for the darts team football predictions.
