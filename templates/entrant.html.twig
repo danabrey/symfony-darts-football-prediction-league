@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% set title = entrant.name ~ "'s Predictions" %}
+
+{% block body %}
+    <table class="table">
+         <thead>
+         <tr>
+              <th></th>
+              <th>Predicted</th>
+              <th>Actual</th>
+              <th>Points</th>
+         </tr>
+         </thead>
+         <tbody>
+         {% for prediction in entrant.predictions %}
+             <tr>
+                  <td>{{ prediction.club.name }}</td>
+                  <td>{{ prediction.predictedPosition }}</td>
+                  <td>{{ prediction.club.position }}</td>
+                  <td>{{ prediction.points }}</td>
+             </tr>
+         {% endfor %}
+         </tbody>
+         <tfoot>
+         <tr>
+              <td></td>
+              <td></td>
+              <td><strong>Total:</strong></td>
+              <td>{{ entrant.score }}</td>
+         </tr>
+         <tr>
+              <td></td>
+              <td></td>
+              <td><strong>% of possible:</strong></td>
+              <td>{{ (entrant.score / 240 * 100) | number_format(2) }}%</td>
+         </tr>
+         </tfoot>
+    </table>
+{% endblock %}

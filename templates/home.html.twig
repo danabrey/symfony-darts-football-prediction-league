@@ -4,6 +4,6 @@
 
 {% block body %}
      {% for entrant in entrants %}
-          {{ entrant.name }} - {{ entrant.score }}<br>
+          <a href="{{ path("app_entrant_show", { "id": entrant.id }) }}">{{ entrant.name }}</a> - {{ entrant.score }}<br>
      {% endfor %}
 {% endblock %}
