@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dokku": {
-      "predeploy": "php bin/console doctrine:migrations:migrate --allow-no-migration && ./node_modules/.bin/encore production"
+      "predeploy": "php bin/console doctrine:migrations:migrate --allow-no-migration && ./node_modules/.bin/encore production",
+      "postdeploy": "php bin/console app:scrape && php bin/console app:scores"
     }
   }
 }
