@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Entrant;
+use App\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function showAction()
     {
         return $this->render("home.html.twig", [
-            "entrants" => $this->getDoctrine()->getRepository(Entrant::class)->findAllOrderedByScore()
+            "entrants" => $this->getDoctrine()->getRepository(Entrant::class)->findAllOrderedByScore(),
+            "teams" => $this->getDoctrine()->getRepository(Team::class)->findAll()
         ]);
     }
 }

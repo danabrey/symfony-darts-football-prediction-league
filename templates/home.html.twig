@@ -1,9 +1,36 @@
 {% extends "base.html.twig" %}
 
-{% set title = "Darts Football Prediction League" %}
-
 {% block body %}
-     {% for entrant in entrants %}
-          <a href="{{ path("app_entrant_show", { "id": entrant.id }) }}">{{ entrant.name }}</a> - {{ entrant.score }}<br>
-     {% endfor %}
+    <div class="row">
+        <div class="col-sm">
+            <h3>Premier</h3>
+            {% for i, team in teams|slice(0,20)|sort %}
+                {{ i+1 }}. {{ team.name }} - {{ team.abbreviation }}<br>
+            {% endfor %}
+        </div>
+        <div class="col-sm">
+            <h3>Championship</h3>
+            {% for i, team in teams|slice(20,24) %}
+                {{ i+1 }}. {{ team.name }} - {{ team.abbreviation }}<br>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>League One</h3>
+            {% for i, team in teams|slice(44,24) %}
+                {{ i+1 }}. {{ team.name }} - {{ team.abbreviation }}<br>
+            {% endfor %}
+        </div>
+        <div class="col-sm">
+            <h3>League Two</h3>
+            {% for i, team in teams|slice(68,24) %}
+                {{ i+1 }}. {{ team.name }} - {{ team.abbreviation }}<br>
+            {% endfor %}
+        </div>
+    </div>
+
+     {#{% for entrant in entrants %}#}
+          {#<a href="{{ path("app_entrant_show", { "id": entrant.id }) }}">{{ entrant.name }}</a> - {{ entrant.score }}<br>#}
+     {#{% endfor %}#}
 {% endblock %}
