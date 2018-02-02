@@ -1,7 +1,15 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-     {% for entrant in entrants %}
-          <a href="{{ path("app_entrant_show", { "id": entrant.id }) }}">{{ entrant.name }}</a> - {{ entrant.score }}<br>
-     {% endfor %}
+    <table class="table">
+        <tbody>
+        {% for i, entrant in entrants %}
+            <tr>
+                <td>{{ i + 1 }}</td>
+                <td><a href="{{ path("app_entrant_show", { "id": entrant.id }) }}">{{ entrant.name }}</a></td>
+                <td>{{ entrant.score }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
